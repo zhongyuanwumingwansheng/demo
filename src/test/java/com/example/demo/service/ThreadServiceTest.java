@@ -20,12 +20,4 @@ public class ThreadServiceTest {
     public void testNewFixedThreadPool(){
         threadService.newFixedThreadPool();
     }
-
-    public static void main(String[] args){
-        ThreadService threadService = new ThreadService();
-        //threadService.newCachedThreadPool();
-        //threadService.newFixedThreadPool();
-        threadService.newScheduledThreadPool();
-        //threadService.newSingleThreadExecutor();
-    }
 }
