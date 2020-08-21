@@ -20,4 +20,14 @@ public class ThreadServiceTest {
     public void testNewFixedThreadPool(){
         threadService.newFixedThreadPool();
     }
+
+    @Test
+    public void testNewScheduledThreadPool(){
+        threadService.newScheduledThreadPool();
+    }
+
+    @Test
+    public void testNewSingleThreadExecutor(){
+        threadService.newSingleThreadExecutor();
+    }
 }
