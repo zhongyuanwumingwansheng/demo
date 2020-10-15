@@ -1,0 +1,22 @@
+<filter>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <init-param>
+        <param-name>targetBeanName</param-name><!-- 对登录页面不进行过滤 -->
+        <param-value>sessionBean</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+<bean id="sessionBean" class = "com.example.demo.filter.SessionFilter" init-method="init">
+    <property name="excludeUrls">
+        <list>
+            <value>/add.json</value>
+            <value>/test.json</value>
+        </list>
+    </property>
+</bean>
+
