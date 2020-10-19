@@ -31,6 +31,7 @@ public class SessionFilter extends OncePerRequestFilter implements Filter {
         if(null == context){
             //重定向
             String redirectUrl = "";
+            //重定向 adapter
 
             if(servletRequest.getRequestURI().contains("/index.htm")){
                 servletResponse.sendRedirect(redirectUrl);
