@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.model.Resource;
 import com.example.demo.service.Consumer;
 import com.example.demo.service.Producer;
+import com.example.demo.util.NumberUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,7 +12,7 @@ public class DemoApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(DemoApplication.class, args);
+        //SpringApplication.run(DemoApplication.class, args);
         System.out.println("hello world" +
                 "");
 
@@ -22,6 +23,9 @@ public class DemoApplication {
         Consumer consumer = new Consumer(resource);
         producer.start();
         consumer.start();
+
+        NumberUtil.testDivision();
+
     }
 
 }
