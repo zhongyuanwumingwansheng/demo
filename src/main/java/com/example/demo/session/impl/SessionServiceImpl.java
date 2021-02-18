@@ -3,6 +3,7 @@ package com.example.demo.session.impl;
 import com.alibaba.fastjson.JSON;
 import com.example.demo.dao.SessionDAO;
 import com.example.demo.model.SessionDO;
+import com.example.demo.session.SessionService;
 import com.example.demo.util.LocalMemoryCache;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
@@ -11,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Map;
 
-public class SessionServiceImpl {
+public class SessionServiceImpl implements SessionService {
 
     /**
      *
@@ -31,6 +32,7 @@ public class SessionServiceImpl {
      * @param sessionVal
      * @return
      */
+    @Override
     public boolean addSession(String sessionId, Map<String, String> sessionVal){
         SessionDO sessionDO = new SessionDO();
         sessionDO.setSessionId(sessionId);
@@ -41,6 +43,7 @@ public class SessionServiceImpl {
         return addSession(sessionDO);
     }
 
+    @Override
     public boolean addSession(SessionDO sessionDO){
         //判空处理，
         if(sessionDO == null || StringUtils.isBlank(sessionDO.getSessionId())
@@ -51,6 +54,7 @@ public class SessionServiceImpl {
         return sessionDAO.insert(sessionDO);
     }
 
+    @Override
     public SessionDO querySession(String sessionId){
         if(StringUtils.isBlank(sessionId)){
             return null;
@@ -77,6 +81,7 @@ public class SessionServiceImpl {
         return null;
     }
 
+    @Override
     public int expireSession(){
         List<SessionDO> sessionDOList = sessionDAO.queryAllExpiredSession();
 
