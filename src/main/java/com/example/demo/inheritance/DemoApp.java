@@ -42,6 +42,11 @@ public class DemoApp{
 
         NumberUtil.testDivision();
 
+        float f=3.4f;
+
+        System.out.println(f);
+
+
     }
 
 }
