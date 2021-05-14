@@ -34,11 +34,11 @@ public class DemoApp{
         base.f();
         base.g();
 
-/*        Resource resource = new Resource();
+        Resource resource = new Resource();
         Producer producer = new Producer(resource);
         Consumer consumer = new Consumer(resource);
         producer.start();
-        consumer.start();*/
+        consumer.start();
 
         NumberUtil.testDivision();
 
@@ -46,6 +46,18 @@ public class DemoApp{
 
         System.out.println(f);
 
+        ClassLoader clsApp = DemoApp.class.getClassLoader();
+        ClassLoader clsExt = clsApp.getParent();
+        ClassLoader clsBoot = clsExt.getParent();
+        System.out.println(clsApp);
+        System.out.println(clsExt);
+        System.out.println(clsBoot);
+
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
 
     }
 
